@@ -1,0 +1,22 @@
+toolsets = vs2003 vs2012 vs2013;
+
+vs2003.solutionfile = ../VC7.1/Conversion1.sln;
+vs2012.solutionfile = ../VC11/Conversion1.sln;
+vs2013.solutionfile = ../VC12/Conversion1.sln;
+
+setting BOOST_ROOT
+{
+    help = "Path to the Boost installation";
+    default = '$(BOOST)';
+}
+
+program Conversion1
+{
+    includedirs += $(BOOST_ROOT);
+    libdirs += $(BOOST_ROOT)/stage/lib;
+
+    sources
+    {
+        ../../Source/Main.cpp
+    }
+}
