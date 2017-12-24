@@ -12,6 +12,8 @@ setting BOOST_ROOT
 
 program Path1
 {
+    archs = x86 x86_64;
+
     includedirs += $(BOOST_ROOT);
     libdirs += $(BOOST_ROOT)/stage/lib;
 
