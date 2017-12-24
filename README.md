@@ -4,9 +4,11 @@ This repository contains the examples for our [Boost tutorials](http://www.needf
 
 ## List of examples
 
+- [Conversion1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Endian/Conversion1): Example showing how to convert from native to little and big endian.
+
 ## License
 
-Copyright (c) 2017 Xavier Leclercq
+Copyright (c) 2015-2017 Xavier Leclercq
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
