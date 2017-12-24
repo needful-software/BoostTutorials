@@ -1,8 +1,8 @@
-toolsets = vs2003 vs2012 vs2013;
+toolsets = gnu vs2015 vs2013;
 
-vs2003.solutionfile = ../VC7.1/Conversion1.sln;
-vs2012.solutionfile = ../VC11/Conversion1.sln;
+gnu.makefile = ../GNUmakefile/GNUmakefile;
 vs2013.solutionfile = ../VC12/Conversion1.sln;
+vs2015.solutionfile = ../VC14/Conversion1.sln;
 
 setting BOOST_ROOT
 {
@@ -12,11 +12,13 @@ setting BOOST_ROOT
 
 program Conversion1
 {
+    archs = x86 x86_64;
+
     includedirs += $(BOOST_ROOT);
     libdirs += $(BOOST_ROOT)/stage/lib;
 
     sources
     {
-        ../../Source/Main.cpp
+        ../../Source/main.cpp
     }
 }
