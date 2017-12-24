@@ -4,7 +4,11 @@ This repository contains the examples for our [Boost tutorials](http://www.needf
 
 ## List of examples
 
+### Boost.Endian
 - [Conversion1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Endian/Conversion1): Example showing how to convert from native to little and big endian.
+
+### Boost.FileSystem
+- [Path1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Filesystem/Path1): A simple example of manipulating paths.
 
 ## License
 
