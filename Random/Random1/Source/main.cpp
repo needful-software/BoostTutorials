@@ -20,6 +20,7 @@
     IN THE SOFTWARE.
 */
 
+#include <boost/random/random_device.hpp>
 #include <boost/random/mersenne_twister.hpp>
 #include <iostream>
 #include <vector>
@@ -27,6 +28,8 @@
 
 int main(int argc, char* argv[])
 {
+    boost::random_device rng;
+
     // Create a Mersenne Twister pseudo-random number generator
     boost::random::mt19937 prng;
 
