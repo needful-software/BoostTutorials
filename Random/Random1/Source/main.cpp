@@ -28,29 +28,41 @@
 
 int main(int argc, char* argv[])
 {
+    // Create a random number generator using the platform default
     boost::random_device rng;
+    
+    std::cout << "Random number generator:" << std::endl;
+    std::cout << "\tMin generated number: " << rng.min() << std::endl;
+    std::cout << "\tMax generated number: " << rng.max() << std::endl;
+    std::cout << std::endl;
 
     // Create a Mersenne Twister pseudo-random number generator
     boost::random::mt19937 prng;
 
-    // Seed it with the current time
-    prng.seed((uint32_t)std::time(0));
-    
-    std::cout << "The random number generator will generate numbers between "
-        << prng.min() << " and " << prng.max() << std::endl << std::endl;
-
-    // Generate a few random numbers one by one
-    std::cout << "Random number 1: " << prng() << std::endl;
-    std::cout << "Random number 2: " << prng() << std::endl;
-    std::cout << "Random number 3: " << prng() << std::endl;
+    std::cout << "Pseudo-random number generator:" << std::endl;
+    std::cout << "\tMin generated number: " << prng.min() << std::endl;
+    std::cout << "\tMax generated number: " << prng.max() << std::endl;
     std::cout << std::endl;
 
-    // Fill a vector with random numbers
+    // Generate a random number to be used as the seed
+    unsigned int seed = rng();
+    std::cout << "The seed is: " << seed << std::endl;
+    std::cout << std::endl;
+
+    prng.seed(seed);
+
+    // Generate a few pseudo-random numbers one by one
+    std::cout << "Pseudo-random number 1: " << prng() << std::endl;
+    std::cout << "Pseudo-random number 2: " << prng() << std::endl;
+    std::cout << "Pseudo-random number 3: " << prng() << std::endl;
+    std::cout << std::endl;
+
+    // Fill a vector with pseudo-random numbers
     std::vector<unsigned int> v;
     v.resize(5);
     prng.generate(v.begin(), v.end());
 
-    std::cout << "Random numbers vector: ";
+    std::cout << "Pseudo-random numbers vector: ";
     for (size_t i = 0; i < v.size(); ++i)
     {
         std::cout << v[i] << " ";
