@@ -4,6 +4,9 @@ This repository contains the examples for our [Boost tutorials](http://www.needf
 
 ## List of examples
 
+### Boost.Date_Time
+- [Clocks1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Date_Time/Clocks1): Example showing how to get the current time at different levels of precision.
+
 ### Boost.Endian
 - [Conversion1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Endian/Conversion1): Example showing how to convert from native to little and big endian.
 
