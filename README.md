@@ -13,6 +13,12 @@ This repository contains the examples for our [Boost tutorials](http://www.needf
 ### Boost.FileSystem
 - [Path1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Filesystem/Path1): A simple example of manipulating paths.
 
+### Boost.Log
+- [Log1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Log/Log1): A simple example of use the Boost logging framework.
+
+### Boost.Random
+- [Random1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Random/Random1): A simple example of using a pseudo-random number generator.
+
 ## License
 
 Copyright (c) 2015-2017 Xavier Leclercq
