@@ -20,18 +20,16 @@
     IN THE SOFTWARE.
 */
 
-#include <boost/log/sources/logger.hpp>
-#include <boost/log/sources/record_ostream.hpp>
 #include <boost/log/trivial.hpp>
-#include <boost/log/utility/setup/file.hpp>
 
 int main(int argc, char* argv[])
 {
-    boost::log::sources::logger log;
-    //boost::log::add_file_log("sample.log");
-    //boost::log::sources::severity_logger< boost::log::trivial::severity_level > log;
-    BOOST_LOG(log) << "Hello, World!";
-    //BOOST_LOG_SEV(log, boost::log::trivial::warning) << "Error";
+    BOOST_LOG_TRIVIAL(trace) << "Severity: trace";
+    BOOST_LOG_TRIVIAL(debug) << "Severity: debug";
+    BOOST_LOG_TRIVIAL(info) << "Severity: info";
+    BOOST_LOG_TRIVIAL(warning) << "Severity: warning";
+    BOOST_LOG_TRIVIAL(error) << "Severity: error";
+    BOOST_LOG_TRIVIAL(fatal) << "Severity: fatal";
 
     return 0;
 }
