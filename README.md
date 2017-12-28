@@ -16,6 +16,7 @@ This repository contains the examples for our [Boost tutorials](http://www.needf
 ### Boost.Log
 - [Log1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Log/Log1): A simple example of use the Boost logging framework.
 - [FileLog1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Log/FileLog1): A simple example of logging to a file.
+- [LogMultithreaded1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Log/LogMultithreaded1): A simple example that shows trivial logging in a multithreaded application.
 
 ### Boost.Random
 - [Random1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Random/Random1): A simple example of using a pseudo-random number generator.
