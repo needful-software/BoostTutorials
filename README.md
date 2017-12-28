@@ -20,6 +20,9 @@ This repository contains the examples for our [Boost tutorials](http://www.needf
 ### Boost.Random
 - [Random1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Random/Random1): A simple example of using a pseudo-random number generator.
 
+### Boost.Thread
+- [Thread1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Thread/Thread1): A simple example of thread creation.
+
 ## License
 
 Copyright (c) 2015-2017 Xavier Leclercq
