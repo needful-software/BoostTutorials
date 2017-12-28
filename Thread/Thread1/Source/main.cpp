@@ -25,7 +25,7 @@
 
 void ThreadMain()
 {
-    std::cout << "Printed from thread: " << boost::this_thread::get_id() << std::endl;
+    std::cout << "Printed from launched thread: " << boost::this_thread::get_id() << std::endl;
 }
 
 int main(int argc, char* argv[])
@@ -33,12 +33,10 @@ int main(int argc, char* argv[])
     // This creates a thread and immediately starts executing it
     boost::thread thread1(ThreadMain);
 
-    std::cout << "Printed from thread: " << boost::this_thread::get_id() << std::endl;
+    std::cout << "Printed from main thread: " << boost::this_thread::get_id() << std::endl;
 
-    // Give some time for the other thread to print its message
-    // to the console. There are better ways to do this but we
-    // keep it simple for now.
-    boost::this_thread::sleep_for(boost::chrono::seconds(1));
+    // Wait until thread1 has completed
+    thread1.join();
 
     return 0;
 }
