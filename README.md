@@ -23,6 +23,7 @@ This repository contains the examples for our [Boost tutorials](http://www.needf
 
 ### Boost.Thread
 - [Thread1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Thread/Thread1): A simple example of thread creation.
+- [ThreadException1](https://github.com/NeedfulSoftware/BoostTutorials/tree/master/Thread/ThreadException1): A simple example to illustrate what happens when a thread function throws an uncaught exception.
 
 ## License
 
