@@ -66,10 +66,10 @@ BOOST_ROOT ?= $(BOOST)
 all: $(_builddir)ErrorCode1
 
 $(_builddir)ErrorCode1: $(_builddir)ErrorCode1_main.o
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)ErrorCode1_main.o -L$(BOOST_ROOT)/stage/lib -pthread
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)ErrorCode1_main.o -L$(BOOST_ROOT)/stage/lib -lboost_system -pthread
 
 $(_builddir)ErrorCode1_main.o: ../../Source/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(BOOST_ROOT) ../../Source/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(BOOST_ROOT) -std=c++11 ../../Source/main.cpp
 
 clean:
 	rm -f $(_builddir)*.o

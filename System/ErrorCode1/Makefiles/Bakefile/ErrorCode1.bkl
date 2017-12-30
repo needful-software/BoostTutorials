@@ -17,6 +17,12 @@ program ErrorCode1
     includedirs += $(BOOST_ROOT);
     libdirs += $(BOOST_ROOT)/stage/lib;
 
+    if ($(toolset) == gnu)
+    {
+        cxx-compiler-options = "-std=c++11";
+        libs += boost_system;
+    }
+
     sources
     {
         ../../Source/main.cpp
