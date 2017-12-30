@@ -20,7 +20,29 @@
     IN THE SOFTWARE.
 */
 
+#include <boost/system/windows_error.hpp>
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+#include <iostream>
+
 int main(int argc, char* argv[])
 {
+    boost::system::error_code errorCode;
+
+#ifdef _WIN32
+    HANDLE file = CreateFile(L"doesnotexist", GENERIC_READ, 0, NULL, OPEN_EXISTING, 0, NULL);
+    DWORD lastError = GetLastError();
+    if (file == INVALID_HANDLE_VALUE)
+    {
+        std::cout << "Failed to open file. GetLastError(): " << lastError << std::endl;
+    }
+    errorCode = boost::system::error_code(lastError, boost::system::system_category());
+#endif
+
+    std::cout << "error_code: " << errorCode << std::endl;
+
     return 0;
 }
