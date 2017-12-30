@@ -20,6 +20,8 @@
     IN THE SOFTWARE.
 */
 
+// No need to include these files conditionally as Boost already
+// does an OS check inside them
 #include <boost/system/windows_error.hpp>
 #include <boost/system/linux_error.hpp>
 
@@ -33,8 +35,13 @@
 
 int main(int argc, char* argv[])
 {
+    // OS-specific error code
     boost::system::error_code errorCode;
 
+    // Open the file using the Windows or the POSIX API.
+    // Note that we try to open a file in a subdirectory that doesn't exist because
+    // that will cause Windows to return a different error code than when the directory
+    // exists but not the file. If we didn't do that both type of calls would return 2.
 #ifdef _WIN32
     HANDLE file = CreateFile(L"doesnotexist/doesnotexist", GENERIC_READ, 0, NULL, OPEN_EXISTING, 0, NULL);
     DWORD lastError = GetLastError();
@@ -52,7 +59,13 @@ int main(int argc, char* argv[])
     errorCode = boost::system::error_code(errno, boost::system::system_category());
 #endif
 
+    // Output the OS-specific error code
     std::cout << "error_code: " << errorCode << std::endl;
+
+    // Convert the OS-specific error code into a generic error_condition
+    // error_condition doesn't implement << the same way error_code does so we format it explicitly
+    boost::system::error_condition errorCondition = errorCode.default_error_condition();
+    std::cout << "error_condition: " << errorCondition.category().name() << ":" << errorCondition.value() << std::endl;
 
     return 0;
 }
