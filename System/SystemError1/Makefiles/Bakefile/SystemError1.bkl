@@ -1,0 +1,30 @@
+toolsets = gnu vs2015 vs2013;
+
+gnu.makefile = ../GNUmakefile/GNUmakefile;
+vs2013.solutionfile = ../VC12/SystemError1.sln;
+vs2015.solutionfile = ../VC14/SystemError1.sln;
+
+setting BOOST_ROOT
+{
+    help = "Path to the Boost installation";
+    default = '$(BOOST)';
+}
+
+program SystemError1
+{
+    archs = x86 x86_64;
+
+    includedirs += $(BOOST_ROOT);
+    libdirs += $(BOOST_ROOT)/stage/lib;
+
+    if ($(toolset) == gnu)
+    {
+        cxx-compiler-options = "-std=c++11";
+        libs += boost_system;
+    }
+
+    sources
+    {
+        ../../Source/main.cpp
+    }
+}
