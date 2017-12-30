@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     boost::system::error_code errorCode;
 
 #ifdef _WIN32
-    HANDLE file = CreateFile(L"doesnotexist", GENERIC_READ, 0, NULL, OPEN_EXISTING, 0, NULL);
+    HANDLE file = CreateFile(L"doesnotexist/doesnotexist", GENERIC_READ, 0, NULL, OPEN_EXISTING, 0, NULL);
     DWORD lastError = GetLastError();
     if (file == INVALID_HANDLE_VALUE)
     {
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
     }
     errorCode = boost::system::error_code(lastError, boost::system::system_category());
 #else
-    int file = open("doesnotexist", O_RDONLY);
+    int file = open("doesnotexist/doesnotexist", O_RDONLY);
     if (file == -1)
     {
         std::cout << "Failed to open file. errno: " << errno << std::endl;
