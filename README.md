@@ -30,7 +30,7 @@ This repository contains the examples for our [Boost tutorials](http://www.needf
 
 ## License
 
-Copyright (c) 2015-2017 Xavier Leclercq
+Copyright (c) 2015-2020 Xavier Leclercq
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
