@@ -1,0 +1,53 @@
+toolsets = gnu vs2017 vs2015 vs2013;
+
+gnu.makefile = ../GNUmakefile/GNUmakefile;
+vs2017.solutionfile = ../VC15/Child1.sln;
+vs2015.solutionfile = ../VC14/Child1.sln;
+vs2013.solutionfile = ../VC12/Child1.sln;
+
+setting BOOST_ROOT
+{
+    help = "Path to the Boost installation";
+    default = '$(BOOST)';
+}
+
+program Child1
+{
+    archs = x86 x86_64;
+
+    includedirs += $(BOOST_ROOT);
+    libdirs += $(BOOST_ROOT)/stage/lib;
+
+    if ($(toolset) == gnu)
+    {
+        outputdir = ../../Bin;
+    }
+    if ($(toolset) != gnu)
+    {
+        outputdir = ../../Bin/$(arch);
+    }
+
+    sources
+    {
+        ../../Source/main.cpp
+    }
+}
+
+program HelloWorld
+{
+    archs = x86 x86_64;
+
+    if ($(toolset) == gnu)
+    {
+        outputdir = ../../Bin;
+    }
+    if ($(toolset) != gnu)
+    {
+        outputdir = ../../Bin/$(arch);
+    }
+
+    sources
+    {
+        ../../Source/HelloWorld/main.cpp
+    }
+}
