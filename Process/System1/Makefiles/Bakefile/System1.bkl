@@ -23,3 +23,13 @@ program System1
         ../../Source/main.cpp
     }
 }
+
+program HelloWorld
+{
+    archs = x86 x86_64;
+
+    sources
+    {
+        ../../Source/HelloWorld/main.cpp
+    }
+}

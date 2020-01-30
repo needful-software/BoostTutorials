@@ -63,7 +63,7 @@ BOOST_ROOT ?= $(BOOST)
 
 # ------------
 
-all: $(_builddir)System1
+all: $(_builddir)System1 $(_builddir)HelloWorld
 
 $(_builddir)System1: $(_builddir)System1_main.o
 	$(CXX) -o $@ $(LDFLAGS) $(_builddir)System1_main.o -L$(BOOST_ROOT)/stage/lib -pthread
@@ -71,10 +71,17 @@ $(_builddir)System1: $(_builddir)System1_main.o
 $(_builddir)System1_main.o: ../../Source/main.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(BOOST_ROOT) ../../Source/main.cpp
 
+$(_builddir)HelloWorld: $(_builddir)HelloWorld_main.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)HelloWorld_main.o -pthread
+
+$(_builddir)HelloWorld_main.o: ../../Source/HelloWorld/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread ../../Source/HelloWorld/main.cpp
+
 clean:
 	rm -f $(_builddir)*.o
 	rm -f $(_builddir)*.d
 	rm -f $(_builddir)System1
+	rm -f $(_builddir)HelloWorld
 
 .PHONY: all clean
 
