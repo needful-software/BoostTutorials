@@ -5,5 +5,9 @@
 *.opendb
 *.VC.db
 .vs/
-Debug/
-Release/
+**/Bin/x64/*.exe
+**/Bin/x64/*.ilk
+**/Bin/x64/*.pdb
+**/Makefiles/**/Debug/
+**/Makefiles/**/Release/
+**/Makefiles/**/*.vcxproj.user
