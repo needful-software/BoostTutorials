@@ -63,15 +63,15 @@ BOOST_ROOT ?= $(BOOST)
 
 # ------------
 
-all: ../../Bin/ChildOnExit1 ../../Bin/HelloWorld
+all: $(_builddir)ChildOnExit1 $(_builddir)HelloWorld
 
-../../Bin/ChildOnExit1: $(_builddir)ChildOnExit1_main.o
+$(_builddir)ChildOnExit1: $(_builddir)ChildOnExit1_main.o
 	$(CXX) -o $@ $(LDFLAGS) $(_builddir)ChildOnExit1_main.o -L$(BOOST_ROOT)/stage/lib -pthread
 
 $(_builddir)ChildOnExit1_main.o: ../../Source/main.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(BOOST_ROOT) ../../Source/main.cpp
 
-../../Bin/HelloWorld: $(_builddir)HelloWorld_main.o
+$(_builddir)HelloWorld: $(_builddir)HelloWorld_main.o
 	$(CXX) -o $@ $(LDFLAGS) $(_builddir)HelloWorld_main.o -pthread
 
 $(_builddir)HelloWorld_main.o: ../../Source/HelloWorld/main.cpp
@@ -80,8 +80,8 @@ $(_builddir)HelloWorld_main.o: ../../Source/HelloWorld/main.cpp
 clean:
 	rm -f $(_builddir)*.o
 	rm -f $(_builddir)*.d
-	rm -f ../../Bin/ChildOnExit1
-	rm -f ../../Bin/HelloWorld
+	rm -f $(_builddir)ChildOnExit1
+	rm -f $(_builddir)HelloWorld
 
 .PHONY: all clean
 

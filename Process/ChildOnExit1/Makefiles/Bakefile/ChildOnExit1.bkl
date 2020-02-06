@@ -18,15 +18,6 @@ program ChildOnExit1
     includedirs += $(BOOST_ROOT);
     libdirs += $(BOOST_ROOT)/stage/lib;
 
-    if ($(toolset) == gnu)
-    {
-        outputdir = ../../Bin;
-    }
-    if ($(toolset) != gnu)
-    {
-        outputdir = ../../Bin/$(arch);
-    }
-
     sources
     {
         ../../Source/main.cpp
@@ -36,15 +27,6 @@ program ChildOnExit1
 program HelloWorld
 {
     archs = x86 x86_64;
-
-    if ($(toolset) == gnu)
-    {
-        outputdir = ../../Bin;
-    }
-    if ($(toolset) != gnu)
-    {
-        outputdir = ../../Bin/$(arch);
-    }
 
     sources
     {
