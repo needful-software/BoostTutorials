@@ -1,0 +1,38 @@
+toolsets = gnu vs2017 vs2015 vs2013;
+
+gnu.makefile = ../GNUmakefile/GNUmakefile;
+vs2017.solutionfile = ../VC15/ChildOnExit2.sln;
+vs2015.solutionfile = ../VC14/ChildOnExit2.sln;
+vs2013.solutionfile = ../VC12/ChildOnExit2.sln;
+
+setting BOOST_ROOT
+{
+    help = "Path to the Boost installation";
+    default = '$(BOOST)';
+}
+
+program ChildOnExit2
+{
+    archs = x86 x86_64;
+
+    includedirs += $(BOOST_ROOT);
+    libdirs += $(BOOST_ROOT)/stage/lib;
+
+    sources
+    {
+        ../../Source/main.cpp
+    }
+}
+
+program HelloWorld
+{
+    archs = x86 x86_64;
+
+    includedirs += $(BOOST_ROOT);
+    libdirs += $(BOOST_ROOT)/stage/lib;
+
+    sources
+    {
+        ../../Source/HelloWorld/main.cpp
+    }
+}
