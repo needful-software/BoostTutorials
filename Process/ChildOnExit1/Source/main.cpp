@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     };
     
     // Create the child process, pass in our execution context and our exit handler.
-    boost::process::child childProcess1("HelloWorld", execution_context, boost::process::on_exit = on_exit_handler);
+    boost::process::child childProcess("HelloWorld", execution_context, boost::process::on_exit = on_exit_handler);
     
     std::cout << "Child process has been created." << std::endl;
 
