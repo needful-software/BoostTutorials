@@ -72,10 +72,10 @@ $(_builddir)ChildOnExit1_main.o: ../../Source/main.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(BOOST_ROOT) ../../Source/main.cpp
 
 $(_builddir)HelloWorld: $(_builddir)HelloWorld_main.o
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)HelloWorld_main.o -pthread
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)HelloWorld_main.o -L$(BOOST_ROOT)/stage/lib -pthread
 
 $(_builddir)HelloWorld_main.o: ../../Source/HelloWorld/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread ../../Source/HelloWorld/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(BOOST_ROOT) ../../Source/HelloWorld/main.cpp
 
 clean:
 	rm -f $(_builddir)*.o

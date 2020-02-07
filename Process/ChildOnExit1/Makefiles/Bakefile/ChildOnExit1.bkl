@@ -28,6 +28,9 @@ program HelloWorld
 {
     archs = x86 x86_64;
 
+    includedirs += $(BOOST_ROOT);
+    libdirs += $(BOOST_ROOT)/stage/lib;
+
     sources
     {
         ../../Source/HelloWorld/main.cpp
