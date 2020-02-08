@@ -1,5 +1,7 @@
 # NeedfulSoftware - Boost Tutorials
 
+[![Join the chat at https://gitter.im/NeedfulSoftware/BoostTutorials](https://badges.gitter.im/NeedfulSoftware/BoostTutorials.svg)](https://gitter.im/NeedfulSoftware/BoostTutorials?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This repository contains the examples for our [Boost tutorials](http://www.needfulsoftware.com/Boost).
 
 ## List of examples
